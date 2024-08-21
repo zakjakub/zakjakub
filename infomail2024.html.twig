@@ -61,7 +61,7 @@
                     <small>
                         Cesta z&nbsp;vlakového nádraží v&nbsp;Mohelnici do&nbsp;kempu trvá pěšky zhruba 40&nbsp;minut.
                         Ke kempu je možné se přiblížit linkovým nebo městským autobusem
-                        nebo můžeš využít námi sjednané taxi za cenu cca 25,- Kč na osobu.
+                        nebo můžeš využít námi sjednané taxi za cenu cca 35,- Kč na osobu.
                     </small>
                 </p>
             </li>
@@ -97,15 +97,15 @@
         <p>
             Pokud máš zaplacené hotelové ubytování, budeš ubytován na&nbsp;pokoji s&nbsp;vlastním sociálním zařízením
             (pokoje jsou po&nbsp;dvou až&nbsp;čtyřech lůžkách),
-            při běžném ubytování v&nbsp;chatkách je k&nbsp;dispozici společné soc.&nbsp;zařízení
-            se sprchami za poplatek 30,-&nbsp;Kč.
+            při běžném ubytování v&nbsp;chatkách je k&nbsp;dispozici zdarma společné soc.&nbsp;zařízení
+            se sprchami.
             Chatky jsou po&nbsp;dvou až&nbsp;šesti lůžkách.
         </p>
         <p>
             Rozdělení účastníků do&nbsp;konkrétních chatek a&nbsp;pokojů se&nbsp;řeší až při&nbsp;příjezdu, takže ano,
             můžete být ubytovaní se&nbsp;svojí kamarádkou či&nbsp;kamarádem.
             Lůžkoviny (peřina, polštář) budou všem ubytovaným zapůjčeny, nicméně pokud jsi ubytován v chatkách,
-            doporučujeme si s sebou vzít i spacák (noci bývají chladné).
+            doporučujeme si s sebou vzít i spacák (noci bývají už chladné).
         </p>
 
         <h2>Stravování</h2>
@@ -114,14 +114,14 @@
             Snídaně je řešena formou rautu a oběd a večeři si budeš moci vybrat ze 3&nbsp;variant
             (včetně odlehčené varianty pro vegetariány) v&nbsp;kempu při evidenci.
             Jídelníček už nyní najdeš zde:
-            <a href="https://www.seznamovakup.cz/files/jidelnicek.pdf" target="_blank">www.seznamovakup.cz/files/jidelnicek.pdf</a>
+            <a href="https://www.seznamovakup.cz/wp-content/uploads/2024/08/Jidelnicek-2024.pdf" target="_blank">www.seznamovakup.cz/files/jidelnicek.pdf</a>
         </p>
 
         <h2>Co s&nbsp;sebou?</h2>
         <p>
             Kromě běžného oblečení, obuvi (i&nbsp;pevné!), potřeb osobní hygieny a&nbsp;dalších základních věcí
             si nezapomeň vzít i&nbsp;kostým na tematické
-            párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj se&nbsp;popustit uzdu své fantazii 😏).
+            párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj a&nbsp;se popustit uzdu své fantazii, můžeš vyhrát hodnotné ceny. 😏).
             Dále doporučujeme s sebou vzít plavky, spacák (pokud jsi ubytován v chatce), dostatek hotovosti,
             prodlužovačku/rozdvojku, <strong>láhev na vodu</strong> a teplé oblečení.
             Pokud hraješ na nějaký (dobře přenositelný) hudební nástroj, jistě jej využiješ při klasickém táboráku.
@@ -130,24 +130,32 @@
         {% if participant.event(false).seqId == 1 %}
             <h2>Zápis předmětů</h2>
             <p>
-                PřF, PdF, FF – 5.9. od 12:00
+                Na akci Ti rádi se zápisem předmětů pomůžeme - v programu na to bude pro jednotlivé fakulty vyčleněný čas.v&nbsp 
                 <em>
-                    (Pokud chceš pomoci se zápisem předmětů v&nbsp;kempu,
-                    dej nám do konce srpna vědět na e-mail
-                    <a href="mailto:info@seznamovakup.cz">info@seznamovakup.cz</a>.
-                    Přijeď nejpozději v&nbsp;11:30 do kempu ať máš čas se připravit.
-                    S&nbsp;sebou si vezmi notebook, nabíječku a nejlépe vlastní data.
-                    Wifi v&nbsp;kempu máme, ale jistota je jistota.)
+                   S sebou si prosím nezapomeň vzít notebook, nabíječku a nejlépe vlastní data.
+                    Wifi kempu máme, ale jistota je jistota. 
                 </em>
             </p>
+                <em>
+                   Zápisy předmětů pro jednotlivé fakulty probíhají následovně: 
+                      <ul> 
+                       <li> FZV - 3.9. v 10:00    </li>
+                       <li> PDF, PŘF, FF - 4. 9. v 9:00 (bc)    </li>
+			           <li> LF - 4. 9. 2024 v 11:00    </li>
+                       <li> FTK - 5. 9. v 9:00 či 10:00 (dle oboru)  </li>
+               </ul>
+            </em>
+   {% endif %}
+           
+<p>
 
-            <p>
-                FTK – 6. 9. od 11:00, PF – 7.9. od 12:00
-                (i v&nbsp;průběhu akce ti pomůžeme se zápisem, přivez si s&nbsp;sebou opět notebook,
-                nabíječku a vlastní data a my už ti dáme vědět).
+                <em>
+                   <h3>Nezapomeň sledovat naši <strong>FB událost</strong>, kde postupně odkrýváme program a další informace k akci. </h3>
+                </em> 
             </p>
-        {% endif %}
-
+   
+ <p>
+</p>
         {% include '@OswisOrgOswisCalendar/other/summary/participant-summary.html.twig' %}
         <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
             {% include '@OswisOrgOswisCalendar/other/summary/event-summary.html.twig' with {'event': participant.event(false)} %}
