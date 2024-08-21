@@ -1,0 +1,168 @@
+{% extends '@OswisOrgOswisCore/e-mail/pages/message.html.twig' %}
+
+{% set contact = participant is defined ? participant.contact : null %}
+{% set f = f is defined ? f : (participant.formal is defined ? participant.formal : true) %}
+{% set a = a is defined ? a : (contact.czechSuffixA is defined ? contact.czechSuffixA : '') %}
+{% set salName = salutationName|default(contact.salutationName|default) %}
+{% set event = participant.event(false)|default %}
+
+{% block html_title %}{{ email.subject|default('Než vyrazíš na Seznamovák pro studenty UP') }}{% endblock %}
+
+{% block content_inner %}
+    <style>
+        p {
+            text-align: justify !important;
+        }
+    </style>
+    <div itemscope itemtype="http://schema.org/EventReservation">
+        <link itemprop="reservationStatus" href="http://schema.org/ReservationConfirmed"/>
+        <meta itemprop="modifiedTime" content="{{ participant.updatedAt|date('c') }}"/>
+        <meta itemprop="ticketToken" content="qrCode:{{ participant.id }}"/>{# TODO #}
+        <meta itemprop="ticketNumber" content="{{ participant.id }}"/>
+        <meta itemprop="numSeats" content="1"/>
+
+        <p itemprop="additionalTicketText">
+            <strong>Seznamovák pro&nbsp;studenty&nbsp;UP</strong> se&nbsp;blíží
+            a&nbsp;s&nbsp;tím přichází i&nbsp;očekávané informace k&nbsp;průběhu akce.
+        </p>
+
+        {% if participant.remainingPrice|default(0) > 0 %}
+            <h2 style="color: red;">Platba</h2>
+            {% if participant.remainingDeposit|default(0) > 0 %}
+                <p>
+                    U&nbsp;Tvé přihlášky zatím neevidujeme platbu zálohy.
+                    Pokud nám nedorazí ani v&nbsp;nejbližších dnech, přihlášku označíme za&nbsp;zrušenou,
+                    pokud jsme se&nbsp;spolu již pomocí e-mailu nedomluvili jinak.
+                </p>
+            {% endif %}
+            {% if participant.remainingRest|default(0) > 150 %}
+                <p>
+                    U&nbsp;Tvé přihlášky zatím neevidujeme platbu doplatku.
+                </p>
+            {% endif %}
+        {% endif %}
+
+        <h2>Doprava</h2>
+        <p>
+            Akce se koná v kempu
+            <a href="https://moravacamp.cz" title="MoravaCamp Mohelnice" target="_blank" style="color:black;"><strong>MoravaCamp v&nbsp;Mohelnici</strong> (Petra Bezruče 795/13, 789&nbsp;85, Mohelnice)</a>.
+            Každý účastník si&nbsp;dopravu na&nbsp;místo zajišťuje sám a&nbsp;registrace bude probíhat
+            v&nbsp;areálu kempu mezi 14:00 a 16:00
+            (pokud nestíháš tento čas registrace, napiš nám, prosím, e-mail).
+            Zároveň bychom Tě rádi informovali, že&nbsp;odjezd z&nbsp;areálu po&nbsp;ukončení akce –
+            je okolo&nbsp;10:00 posledního dne, kdy budou muset být vyklizeny a&nbsp;předány chatky a&nbsp;pokoje.
+        </p>
+
+        <h3>Jak se k&nbsp;nám dostaneš?</h3>
+        <ul>
+            <li>
+                <strong>Vlakem</strong>
+                <p>
+                    <small>
+                        Cesta z&nbsp;vlakového nádraží v&nbsp;Mohelnici do&nbsp;kempu trvá pěšky zhruba 40&nbsp;minut.
+                        Ke kempu je možné se přiblížit linkovým nebo městským autobusem
+                        nebo můžeš využít námi sjednané taxi za cenu cca 25,- Kč na osobu.
+                    </small>
+                </p>
+            </li>
+            <li>
+                <strong>Autobusem</strong>
+                <p>
+                    <small>
+                        Cesta pěšky z&nbsp;autobusového nádraží do&nbsp;kempu trvá zhruba čtvrt hodiny.
+                        Pokud budeš potřebovat odvézt zavazadla, napiš nám na e-mail svůj čas příjezdu.
+                    </small>
+                </p>
+            </li>
+            <li>
+                <strong>Autem</strong>
+                <p>
+                    <small>
+                        Parkování vlastních vozidel v&nbsp;areálu kempu je&nbsp;možné,
+                        ovšem je&nbsp;nutné zaplatit poplatek 200,-&nbsp;Kč (za celý pobyt).
+                    </small>
+                </p>
+            </li>
+        </ul>
+        <h3>A co zavazadla?</h3>
+        <p>
+            Na&nbsp;vlakovém i&nbsp;autobusovém nádraží na&nbsp;Tebe budou do&nbsp;15:45 čekat naši instruktoři,
+            kteří zajistí přepravu zavazadel do kempu pro Tvůj pohodlnější přesun.
+            V&nbsp;případě zdravotních důvodů dopravíme do&nbsp;kempu i&nbsp;Tebe –
+            v&nbsp;tom případě se s&nbsp;námi domluv na&nbsp;e-mailu
+            <a href="mailto:info@seznamovakup.cz">info@seznamovakup.cz</a>.
+        </p>
+
+        <h2>Ubytování</h2>
+        <p>
+            Pokud máš zaplacené hotelové ubytování, budeš ubytován na&nbsp;pokoji s&nbsp;vlastním sociálním zařízením
+            (pokoje jsou po&nbsp;dvou až&nbsp;čtyřech lůžkách),
+            při běžném ubytování v&nbsp;chatkách je k&nbsp;dispozici společné soc.&nbsp;zařízení
+            se sprchami za poplatek 30,-&nbsp;Kč.
+            Chatky jsou po&nbsp;dvou až&nbsp;šesti lůžkách.
+        </p>
+        <p>
+            Rozdělení účastníků do&nbsp;konkrétních chatek a&nbsp;pokojů se&nbsp;řeší až při&nbsp;příjezdu, takže ano,
+            můžete být ubytovaní se&nbsp;svojí kamarádkou či&nbsp;kamarádem.
+            Lůžkoviny (peřina, polštář) budou všem ubytovaným zapůjčeny, nicméně pokud jsi ubytován v chatkách,
+            doporučujeme si s sebou vzít i spacák (noci bývají chladné).
+        </p>
+
+        <h2>Stravování</h2>
+        <p>
+            V ceně akce je&nbsp;plná penze (snídaně, oběd, večeře a&nbsp;pitný režim v&nbsp;čase výdeje jídel).
+            Snídaně je řešena formou rautu a oběd a večeři si budeš moci vybrat ze 3&nbsp;variant
+            (včetně odlehčené varianty pro vegetariány) v&nbsp;kempu při evidenci.
+            Jídelníček už nyní najdeš zde:
+            <a href="https://www.seznamovakup.cz/files/jidelnicek.pdf" target="_blank">www.seznamovakup.cz/files/jidelnicek.pdf</a>
+        </p>
+
+        <h2>Co s&nbsp;sebou?</h2>
+        <p>
+            Kromě běžného oblečení, obuvi (i&nbsp;pevné!), potřeb osobní hygieny a&nbsp;dalších základních věcí
+            si nezapomeň vzít i&nbsp;kostým na tematické
+            párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj se&nbsp;popustit uzdu své fantazii 😏).
+            Dále doporučujeme s sebou vzít plavky, spacák (pokud jsi ubytován v chatce), dostatek hotovosti,
+            prodlužovačku/rozdvojku, <strong>láhev na vodu</strong> a teplé oblečení.
+            Pokud hraješ na nějaký (dobře přenositelný) hudební nástroj, jistě jej využiješ při klasickém táboráku.
+        </p>
+
+        {% if participant.event(false).seqId == 1 %}
+            <h2>Zápis předmětů</h2>
+            <p>
+                PřF, PdF, FF – 5.9. od 12:00
+                <em>
+                    (Pokud chceš pomoci se zápisem předmětů v&nbsp;kempu,
+                    dej nám do konce srpna vědět na e-mail
+                    <a href="mailto:info@seznamovakup.cz">info@seznamovakup.cz</a>.
+                    Přijeď nejpozději v&nbsp;11:30 do kempu ať máš čas se připravit.
+                    S&nbsp;sebou si vezmi notebook, nabíječku a nejlépe vlastní data.
+                    Wifi v&nbsp;kempu máme, ale jistota je jistota.)
+                </em>
+            </p>
+
+            <p>
+                FTK – 6. 9. od 11:00, PF – 7.9. od 12:00
+                (i v&nbsp;průběhu akce ti pomůžeme se zápisem, přivez si s&nbsp;sebou opět notebook,
+                nabíječku a vlastní data a my už ti dáme vědět).
+            </p>
+        {% endif %}
+
+        {% include '@OswisOrgOswisCalendar/other/summary/participant-summary.html.twig' %}
+        <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+            {% include '@OswisOrgOswisCalendar/other/summary/event-summary.html.twig' with {'event': participant.event(false)} %}
+        </div>
+        <link itemprop="modifyReservationUrl" href="{{ absolute_url(path('oswis_org_oswis_core_homepage_action')) }}"/>
+        <link itemprop="cancelReservationUrl" href="{{ absolute_url(path('oswis_org_oswis_core_homepage_action')) }}"/>
+
+        {% block message_footer %}
+            <p>Pokud Tě zajímá cokoliv dalšího, neváhej se na nás obrátit.</p>
+            <p>Těšíme se na Tebe.</p>
+            <p>
+                <small>
+                    Pokud zpráva přišla opakovaně, přihláška byla pravděpodobně aktualizována uživatelem nebo správcem.
+                </small>
+            </p>
+        {% endblock message_footer %}
+    </div>
+{% endblock %}
