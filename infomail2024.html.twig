@@ -104,8 +104,8 @@
         <p>
             Rozdělení účastníků do&nbsp;konkrétních chatek a&nbsp;pokojů se&nbsp;řeší až při&nbsp;příjezdu, takže ano,
             můžete být ubytovaní se&nbsp;svojí kamarádkou či&nbsp;kamarádem.
-            Lůžkoviny (peřina, polštář) budou všem ubytovaným zapůjčeny, nicméně pokud jsi ubytován v chatkách,
-            doporučujeme si s sebou vzít i spacák (noci bývají už chladné).
+            Lůžkoviny (peřina, polštář) budou všem ubytovaným zapůjčeny, nicméně pokud jsi ubytován v&nbsp;chatkách,
+            doporučujeme si s&nbsp;sebou vzít i spacák (noci bývají už&nbsp;chladné).
         </p>
 
         <h2>Stravování</h2>
@@ -114,14 +114,14 @@
             Snídaně je řešena formou rautu a oběd a večeři si budeš moci vybrat ze 3&nbsp;variant
             (včetně odlehčené varianty pro vegetariány) v&nbsp;kempu při evidenci.
             Jídelníček už nyní najdeš zde:
-            <a href="https://www.seznamovakup.cz/wp-content/uploads/2024/08/Jidelnicek-2024.pdf" target="_blank">www.seznamovakup.cz/files/jidelnicek.pdf</a>
+            <a href="https://www.seznamovakup.cz/wp-content/uploads/2024/08/Jidelnicek-2024.pdf" target="_blank">Jidelnicek-2024.pdf</a>
         </p>
 
         <h2>Co s&nbsp;sebou?</h2>
         <p>
             Kromě běžného oblečení, obuvi (i&nbsp;pevné!), potřeb osobní hygieny a&nbsp;dalších základních věcí
             si nezapomeň vzít i&nbsp;kostým na tematické
-            párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj a&nbsp;se popustit uzdu své fantazii, můžeš vyhrát hodnotné ceny. 😏).
+            párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj se&nsbp;popustit uzdu své fantazii, můžeš vyhrát hodnotné ceny. 😏).
             Dále doporučujeme s sebou vzít plavky, spacák (pokud jsi ubytován v chatce), dostatek hotovosti,
             prodlužovačku/rozdvojku, <strong>láhev na vodu</strong> a teplé oblečení.
             Pokud hraješ na nějaký (dobře přenositelný) hudební nástroj, jistě jej využiješ při klasickém táboráku.
@@ -130,32 +130,31 @@
         {% if participant.event(false).seqId == 1 %}
             <h2>Zápis předmětů</h2>
             <p>
-                Na akci Ti rádi se zápisem předmětů pomůžeme - v programu na to bude pro jednotlivé fakulty vyčleněný čas.v&nbsp 
+                Na akci Ti rádi se zápisem předmětů pomůžeme – v programu na to bude pro jednotlivé fakulty vyčleněný čas.
                 <em>
                    S sebou si prosím nezapomeň vzít notebook, nabíječku a nejlépe vlastní data.
-                    Wifi kempu máme, ale jistota je jistota. 
+                    Wifi v&nbsp;kempu máme, ale jistota je jistota.
                 </em>
             </p>
+            <p>
                 <em>
-                   Zápisy předmětů pro jednotlivé fakulty probíhají následovně: 
-                      <ul> 
-                       <li> FZV - 3.9. v 10:00    </li>
-                       <li> PDF, PŘF, FF - 4. 9. v 9:00 (bc)    </li>
-			           <li> LF - 4. 9. 2024 v 11:00    </li>
-                       <li> FTK - 5. 9. v 9:00 či 10:00 (dle oboru)  </li>
-               </ul>
-            </em>
-   {% endif %}
-           
-<p>
-
-                <em>
-                   <h3>Nezapomeň sledovat naši <strong>FB událost</strong>, kde postupně odkrýváme program a další informace k akci. </h3>
-                </em> 
+                    Zápisy předmětů pro jednotlivé fakulty probíhají následovně:
+                    <ul>
+                        <li> FZV – 3.&nbsp;9. v&nbsp;10:00    </li>
+                        <li> PDF, PŘF, FF – 4.&nbsp;9. v&nbsp;9:00 (bc)    </li>
+                        <li> LF – 4.&nbsp;9. v&nbsp;11:00    </li>
+                        <li> FTK – 5.&nbsp;9. v&nbsp;9:00 či&nbsp;10:00 (dle&nbsp;oboru)  </li>
+                    </ul>
+                </em>
             </p>
-   
- <p>
-</p>
+       {% endif %}
+
+        <p>
+            <em>
+                <h3>Nezapomeň sledovat naši <a href="https://www.facebook.com/events/1897300317421060" target="_blank">><strong>FB událost</strong></a>, kde postupně odkrýváme program a další informace k akci. </h3>
+            </em>
+        </p>
+
         {% include '@OswisOrgOswisCalendar/other/summary/participant-summary.html.twig' %}
         <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
             {% include '@OswisOrgOswisCalendar/other/summary/event-summary.html.twig' with {'event': participant.event(false)} %}
