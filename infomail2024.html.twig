@@ -21,7 +21,7 @@
         <meta itemprop="ticketNumber" content="{{ participant.id }}"/>
         <meta itemprop="numSeats" content="1"/>
 
-        <p itemprop="additionalTicketText">
+        <p itemprop="additionalTicketText" style="text-align: justify;">
             <strong>Seznamovák pro&nbsp;studenty&nbsp;UP</strong> se&nbsp;blíží
             a&nbsp;s&nbsp;tím přichází i&nbsp;očekávané informace k&nbsp;průběhu akce.
         </p>
@@ -29,21 +29,21 @@
         {% if participant.remainingPrice|default(0) > 0 %}
             <h2 style="color: red;">Platba</h2>
             {% if participant.remainingDeposit|default(0) > 0 %}
-                <p>
+                <p style="text-align: justify;">
                     U&nbsp;Tvé přihlášky zatím neevidujeme platbu zálohy.
                     Pokud nám nedorazí ani v&nbsp;nejbližších dnech, přihlášku označíme za&nbsp;zrušenou,
                     pokud jsme se&nbsp;spolu již pomocí e-mailu nedomluvili jinak.
                 </p>
             {% endif %}
             {% if participant.remainingRest|default(0) > 150 %}
-                <p>
+                <p style="text-align: justify;">
                     U&nbsp;Tvé přihlášky zatím neevidujeme platbu doplatku.
                 </p>
             {% endif %}
         {% endif %}
 
         <h2>Doprava</h2>
-        <p>
+        <p style="text-align: justify;">
             Akce se koná v kempu
             <a href="https://moravacamp.cz" title="MoravaCamp Mohelnice" target="_blank" style="color:black;"><strong>MoravaCamp v&nbsp;Mohelnici</strong> (Petra Bezruče 795/13, 789&nbsp;85, Mohelnice)</a>.
             Každý účastník si&nbsp;dopravu na&nbsp;místo zajišťuje sám a&nbsp;registrace bude probíhat
@@ -57,7 +57,7 @@
         <ul>
             <li>
                 <strong>Vlakem</strong>
-                <p>
+                <p style="text-align: justify;">
                     <small>
                         Cesta z&nbsp;vlakového nádraží v&nbsp;Mohelnici do&nbsp;kempu trvá pěšky zhruba 40&nbsp;minut.
                         Ke kempu je možné se přiblížit linkovým nebo městským autobusem
@@ -67,7 +67,7 @@
             </li>
             <li>
                 <strong>Autobusem</strong>
-                <p>
+                <p style="text-align: justify;">
                     <small>
                         Cesta pěšky z&nbsp;autobusového nádraží do&nbsp;kempu trvá zhruba čtvrt hodiny.
                         Pokud budeš potřebovat odvézt zavazadla, napiš nám na e-mail svůj čas příjezdu.
@@ -76,7 +76,7 @@
             </li>
             <li>
                 <strong>Autem</strong>
-                <p>
+                <p style="text-align: justify;">
                     <small>
                         Parkování vlastních vozidel v&nbsp;areálu kempu je&nbsp;možné,
                         ovšem je&nbsp;nutné zaplatit poplatek 200,-&nbsp;Kč (za celý pobyt).
@@ -85,7 +85,7 @@
             </li>
         </ul>
         <h3>A co zavazadla?</h3>
-        <p>
+        <p style="text-align: justify;">
             Na&nbsp;vlakovém i&nbsp;autobusovém nádraží na&nbsp;Tebe budou do&nbsp;15:45 čekat naši instruktoři,
             kteří zajistí přepravu zavazadel do kempu pro Tvůj pohodlnější přesun.
             V&nbsp;případě zdravotních důvodů dopravíme do&nbsp;kempu i&nbsp;Tebe –
@@ -94,14 +94,14 @@
         </p>
 
         <h2>Ubytování</h2>
-        <p>
+        <p style="text-align: justify;">
             Pokud máš zaplacené hotelové ubytování, budeš ubytován na&nbsp;pokoji s&nbsp;vlastním sociálním zařízením
             (pokoje jsou po&nbsp;dvou až&nbsp;čtyřech lůžkách),
             při běžném ubytování v&nbsp;chatkách je k&nbsp;dispozici zdarma společné soc.&nbsp;zařízení
             se sprchami.
             Chatky jsou po&nbsp;dvou až&nbsp;šesti lůžkách.
         </p>
-        <p>
+        <p style="text-align: justify;">
             Rozdělení účastníků do&nbsp;konkrétních chatek a&nbsp;pokojů se&nbsp;řeší až při&nbsp;příjezdu, takže ano,
             můžete být ubytovaní se&nbsp;svojí kamarádkou či&nbsp;kamarádem.
             Lůžkoviny (peřina, polštář) budou všem ubytovaným zapůjčeny, nicméně pokud jsi ubytován v&nbsp;chatkách,
@@ -109,7 +109,7 @@
         </p>
 
         <h2>Stravování</h2>
-        <p>
+        <p style="text-align: justify;">
             V ceně akce je&nbsp;plná penze (snídaně, oběd, večeře a&nbsp;pitný režim v&nbsp;čase výdeje jídel).
             Snídaně je řešena formou rautu a oběd a večeři si budeš moci vybrat ze 3&nbsp;variant
             (včetně odlehčené varianty pro vegetariány) v&nbsp;kempu při evidenci.
@@ -118,7 +118,7 @@
         </p>
 
         <h2>Co s&nbsp;sebou?</h2>
-        <p>
+        <p style="text-align: justify;">
             Kromě běžného oblečení, obuvi (i&nbsp;pevné!), potřeb osobní hygieny a&nbsp;dalších základních věcí
             si nezapomeň vzít i&nbsp;kostým na tematické
             párty ve stylu "retro" a&nbsp;"reprezentuj svůj obor" (neboj se&nsbp;popustit uzdu své fantazii, můžeš vyhrát hodnotné ceny. 😏).
@@ -129,14 +129,14 @@
 
         {% if participant.event(false).seqId == 1 %}
             <h2>Zápis předmětů</h2>
-            <p>
+            <p style="text-align: justify;">
                 Na akci Ti rádi se zápisem předmětů pomůžeme – v programu na to bude pro jednotlivé fakulty vyčleněný čas.
                 <em>
                    S sebou si prosím nezapomeň vzít notebook, nabíječku a nejlépe vlastní data.
                     Wifi v&nbsp;kempu máme, ale jistota je jistota.
                 </em>
             </p>
-            <p>
+            <p style="text-align: justify;">
                 <em>
                     Zápisy předmětů pro jednotlivé fakulty probíhají následovně:
                     <ul>
@@ -149,7 +149,7 @@
             </p>
        {% endif %}
 
-        <p>
+        <p style="text-align: justify;">
             <em>
                 <h3>Nezapomeň sledovat naši <a href="https://www.facebook.com/events/1897300317421060" target="_blank">><strong>FB událost</strong></a>, kde postupně odkrýváme program a další informace k akci. </h3>
             </em>
